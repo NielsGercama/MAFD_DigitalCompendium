@@ -6,9 +6,11 @@
         <title>Document</title>
         <style>
             canvas{
+                top:0;
+                left:0;
                 width:100%;
                 height:auto;
-                position:fixed;
+                position:absolute;
             }
 
             #ic{
@@ -24,17 +26,18 @@
             }
 
             button{
-                border: 1px dotted yellow;
+                font-size:30px;
+                color:white
                 height: 100%;
                 width:10%;
                 position: fixed;
-                background-color: blue;
-                opacity: 0.2;
+                background-color: rgba(0, 0, 0, 0.2);
+                opacity: 0.5;
                 top:0;
             }
 
             button:hover {
-                opacity:0.5
+                opacity:1
             }
         </style>
     </head>
@@ -44,8 +47,8 @@
         
     </canvas> 
     
-    <button id="prev" style="left:0"></button>
-    <button id="next" style="right:0"></button>
+    <button id="prev" style="left:0">&#8678;</button>
+    <button id="next" style="right:0">&#8680;</button>
     <span id="npages">0</span>
            
     <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.3.200/build/pdf.min.js"></script> 
