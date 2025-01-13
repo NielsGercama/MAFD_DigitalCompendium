@@ -8,11 +8,24 @@
             canvas{
                 border: 1px solid #000
             }
+
+            button{
+                border: 1px dotted yellow;
+                height: 100%;
+                position: fixed;
+                background-color: blue;
+                opacity: 0.2;
+                top:0;
+            }
+
+            button:hover {
+                opacity:0.5
+            }
         </style>
     </head>
 <body>   
-    <button id="prev">Prev</button>
-    <button id="next">Next</button>
+    <button id="prev" style="left:0">Prev</button>
+    <button id="next" style="right:0">Next</button>
     <span id="npages">not yet</span>
     <canvas id="cnv">
         
