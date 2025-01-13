@@ -4,24 +4,31 @@ const PDFStart = nameRoute => {
         canvas = document.querySelector('#cnv'),
         ctx = canvas.getContext('2d'),
         scale = 1,
-        numPage = 1;
+        numPage = 1,
+        interactiveContainer = document.querySelector('#ic');
 
         const GeneratePDF = numPage => {
+            if (numPage === 2) {
+                canvas.fadeTo(0,0);
+                interactiveContainer.fadeTo(0,1);
+            } else {
+                canvas.fadeTo(0,1);
+                pdfDoc.getPage(numPage).then(page => {
 
-            pdfDoc.getPage(numPage).then(page => {
+                    let viewport = page.getViewport({ scale: scale });
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+                    
+                    let renderContext = {
+                        canvasContext : ctx,
+                        viewport:  viewport
+                    }
 
-                let viewport = page.getViewport({ scale: scale });
-                    canvas.height = viewport.height;
-                    canvas.width = viewport.width;
-                
-                let renderContext = {
-                    canvasContext : ctx,
-                    viewport:  viewport
-                }
+                    page.render(renderContext);
+                })
+                document.querySelector('#npages').innerHTML = numPage;
+            }
 
-                page.render(renderContext);
-            })
-            document.querySelector('#npages').innerHTML = numPage;
 
         }
 
