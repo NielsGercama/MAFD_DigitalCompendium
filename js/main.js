@@ -5,14 +5,13 @@ const PDFStart = nameRoute => {
         ctx = canvas.getContext('2d'),
         scale = 1,
         numPage = 1,
-        interactiveContainer = document.querySelector('#ic');
+        IC = document.querySelector('#ic');
 
         const GeneratePDF = numPage => {
             if (numPage === 2) {
-                canvas.fadeTo(0,0);
-                interactiveContainer.fadeTo(0,1);
+                console.log(canvas);
+                console.log(IC);
             } else {
-                canvas.fadeTo(0,1);
                 pdfDoc.getPage(numPage).then(page => {
 
                     let viewport = page.getViewport({ scale: scale });
