@@ -9,6 +9,7 @@ const PDFStart = nameRoute => {
 
         const GeneratePDF = numPage => {
             if (numPage === 2) {
+                console.log('there')
                 IC.opacity=1;
                 canvas.opacity=0;
             } else {
