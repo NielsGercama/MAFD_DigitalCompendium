@@ -11,10 +11,14 @@ const PDFStart = nameRoute => {
             if (numPage === 2) {
                 console.log('there')
                 IC.style.opacity=1;
+                IC.style.pointerEvents = "all";
                 canvas.style.opacity=0;
+                canvas.style.pointerEvents = "none";
             } else {
                 IC.style.opacity=0;
+                IC.style.pointerEvents = "none";
                 canvas.style.opacity=1;
+                canvas.style.pointerEvents = "all";
                 pdfDoc.getPage(numPage).then(page => {
 
                     let viewport = page.getViewport({ scale: scale });
