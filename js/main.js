@@ -3,7 +3,7 @@ const PDFStart = nameRoute => {
         pdfDoc = null,
         canvas = document.querySelector('#cnv'),
         ctx = canvas.getContext('2d'),
-        scale = 1.5,
+        scale = 1,
         numPage = 1;
 
         const GeneratePDF = numPage => {
