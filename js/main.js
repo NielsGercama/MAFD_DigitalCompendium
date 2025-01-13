@@ -10,11 +10,11 @@ const PDFStart = nameRoute => {
         const GeneratePDF = numPage => {
             if (numPage === 2) {
                 console.log('there')
-                IC.opacity=1;
-                canvas.opacity=0;
+                IC.style.opacity=1;
+                canvas.style.opacity=0;
             } else {
-                IC.opacity=0;
-                canvas.opacity=1;
+                IC.style.opacity=0;
+                canvas.style.opacity=1;
                 pdfDoc.getPage(numPage).then(page => {
 
                     let viewport = page.getViewport({ scale: scale });
