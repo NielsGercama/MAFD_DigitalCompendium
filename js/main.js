@@ -3,7 +3,7 @@ const PDFStart = nameRoute => {
         pdfDoc = null,
         canvas = document.querySelector('#cnv'),
         ctx = canvas.getContext('2d'),
-        scale = 1,
+        scale = 2,
         numPage = 1,
         IC = document.querySelector('#ic');
 
@@ -19,6 +19,7 @@ const PDFStart = nameRoute => {
                 IC.style.pointerEvents = "none";
                 canvas.style.opacity=1;
                 canvas.style.pointerEvents = "all";
+                
                 pdfDoc.getPage(numPage).then(page => {
 
                     let viewport = page.getViewport({ scale: scale });
