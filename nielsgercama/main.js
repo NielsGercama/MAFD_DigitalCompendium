@@ -8,6 +8,18 @@ function make3DViewer(numPage) {
     //<model-viewer id="modelviewer" alt="CUBE 3D MODEL" src="media/3d/01/model.glb" shadow-intensity="1" camera-controls touch-action="pan-y" ar environment-image="media/3d/01/environment.hdr" poster="media/3d/01/poster.jpg"></model-viewer>
 }
 
+function makeMiroViewer(numPage) {
+    const viewer = document.createElement("iframe");
+    viewer.id = "miroviewer";
+    return viewer
+}
+
+function makeVideoViewer(numPage) {
+    const viewer = document.createElement("video");
+    viewer.id = "videoviewer"
+    return viewer
+}
+
 
 const PDFStart = nameRoute => {           
     let loadingTask = pdfjsLib.getDocument(nameRoute),
