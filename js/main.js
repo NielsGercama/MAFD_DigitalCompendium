@@ -3,7 +3,6 @@ const PDFStart = nameRoute => {
         pdfDoc = null,
         canvas = document.querySelector('#cnv'),
         ctx = canvas.getContext('2d'),
-        scale = 0.5,
         numPage = 1,
         IC = document.querySelector('#ic');
         VIDEOSLIDE = document.querySelector('#videoslide')
@@ -23,7 +22,7 @@ const PDFStart = nameRoute => {
                 
                 pdfDoc.getPage(numPage).then(page => {
 
-                    let viewport = page.getViewport({ scale: scale });
+                    let viewport = page.getViewport({ scale: canvas.width / page.getViewport(1.0).width });
                         canvas.height = viewport.height;
                         canvas.width = viewport.width;
                     
