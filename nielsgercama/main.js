@@ -22,7 +22,7 @@ function makeMiroViewer(numPage) {
     viewer.scrolling = "0";
 
     const loadingscreen = document.createElement("div");
-    loadingscreenn.id = "loadingscreen";
+    loadingscreen.id = "loadingscreen";
     loadingscreen.style.backgroundColor = "white";
     const loadingscreentext = document.createElement("p");
     loadingscreentext.innerHTML = "loading...";
