@@ -1,39 +1,41 @@
+
+function make3DViewer(numPage) {
+    const viewer = document.createElement("model-viewer");
+    viewer.id = "modelviewer";
+    viewer.alt = "YOUR BROWSER DOES NOT SUPPORT THE 3D MODEL RENDERER";
+    viewer.src = "media/3d/" + numPage + "/model.glb";
+    return viewer
+    //<model-viewer id="modelviewer" alt="CUBE 3D MODEL" src="media/3d/01/model.glb" shadow-intensity="1" camera-controls touch-action="pan-y" ar environment-image="media/3d/01/environment.hdr" poster="media/3d/01/poster.jpg"></model-viewer>
+}
+
+
 const PDFStart = nameRoute => {           
     let loadingTask = pdfjsLib.getDocument(nameRoute),
         pdfDoc = null,
         canvas = document.querySelector('#cnv'),
         ctx = canvas.getContext('2d'),
-        numPage = 1,
-        IC = document.querySelector('#ic');
-        VIDEOSLIDE = document.querySelector('#videoslide')
+        numPage = 1
+
 
         const GeneratePDF = numPage => {
-            if (numPage === 2) {
-                console.log('there')
-                IC.style.opacity=1;
-                IC.style.pointerEvents = "all";
-                canvas.style.opacity=0;
-                canvas.style.pointerEvents = "none";
-                VIDEOSLIDE.style.opacity=0;
-                VIDEOSLIDE.style.pointerEvents = "none";
-                VIDEOSLIDE.pause()
-            } else if (numPage === 3) {
-                IC.style.opacity=0;
-                IC.style.pointerEvents = "none";
-                canvas.style.opacity=0;
-                canvas.style.pointerEvents = "none";
-                VIDEOSLIDE.style.opacity=1;
-                VIDEOSLIDE.style.pointerEvents = "all";
-                VIDEOSLIDE.play()
+            if (numPage in PAGES) {
+                switch (PAGES[numPage]["type"]) {
+                    case "video":
+                        viewer = makeVideoViewer(numPage)
+                    case "3d":
+                        viewer = make3DViewer(numPage)
+                    case "miro":
+                        viewer = makeMiroViewer(numPage)
+                }
+
+                viewer = document.body.appendChild(viewer)
 
             } else {
-                IC.style.opacity=0;
-                IC.style.pointerEvents = "none";
-                canvas.style.opacity=1;
-                canvas.style.pointerEvents = "all";
-                VIDEOSLIDE.style.opacity=0;
-                VIDEOSLIDE.style.pointerEvents = "none";
-                VIDEOSLIDE.pause()
+                try {
+                    document.body.removeChild(viewer)
+                } catch (error) {
+                    console.log("no viewer present!")
+                }
                 
                 pdfDoc.getPage(numPage).then(page => {
                     let viewport = page.getViewport({scale: window.screen.width / page.getViewport({scale: 1}).width});
