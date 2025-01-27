@@ -26,7 +26,8 @@ const PDFStart = nameRoute => {
         pdfDoc = null,
         canvas = document.querySelector('#cnv'),
         ctx = canvas.getContext('2d'),
-        numPage = 1
+        numPage = 1,
+        prev = document.getElementById("prev");
 
 
         const GeneratePDF = numPage => {
@@ -35,15 +36,15 @@ const PDFStart = nameRoute => {
                 switch (PAGES[numPage]["type"]) {
                     case "video":
                         viewer = makeVideoViewer(numPage);
+                        break;
                     case "3d":
                         viewer = make3DViewer(numPage);
+                        break;
                     case "miro":
                         viewer = makeMiroViewer(numPage);
-                    default:
-                        {}
+                        break;
                 }
-
-                viewer = document.body.appendChild(viewer)
+                viewer = prev.insertAdjacentElement('beforebegin', viewer);
 
             } else {
                 try {
