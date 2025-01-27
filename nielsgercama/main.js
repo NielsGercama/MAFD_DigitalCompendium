@@ -67,6 +67,7 @@ const PDFStart = nameRoute => {
                 } 
 
             } 
+            
             pdfDoc.getPage(numPage).then(page => {
                 let viewport = page.getViewport({scale: window.screen.width / page.getViewport({scale: 1}).width});
                     canvas.height = viewport.height;
