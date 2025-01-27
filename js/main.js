@@ -14,11 +14,23 @@ const PDFStart = nameRoute => {
                 IC.style.pointerEvents = "all";
                 canvas.style.opacity=0;
                 canvas.style.pointerEvents = "none";
+                VIDEOSLIDE.style.opacity=0;
+                VIDEOSLIDE.style.pointerEvents = "none";
+            } else if (numPage === 3) {
+                IC.style.opacity=0;
+                IC.style.pointerEvents = "none";
+                canvas.style.opacity=0;
+                canvas.style.pointerEvents = "none";
+                VIDEOSLIDE.style.opacity=1;
+                VIDEOSLIDE.style.pointerEvents = "all";
+
             } else {
                 IC.style.opacity=0;
                 IC.style.pointerEvents = "none";
                 canvas.style.opacity=1;
                 canvas.style.pointerEvents = "all";
+                VIDEOSLIDE.style.opacity=0;
+                VIDEOSLIDE.style.pointerEvents = "none";
                 
                 pdfDoc.getPage(numPage).then(page => {
                     let viewport = page.getViewport({scale: window.screen.width / page.getViewport({scale: 1}).width});
