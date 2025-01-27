@@ -43,6 +43,12 @@ const PDFStart = nameRoute => {
 
 
         const GeneratePDF = numPage => {
+            try {
+                document.body.removeChild(viewer)
+            } catch (error) {
+                console.log("no viewer present!")
+            }
+
             if (numPage in PAGES) {
                 console.log(PAGES[numPage]["type"])
                 switch (PAGES[numPage]["type"]) {
@@ -58,14 +64,7 @@ const PDFStart = nameRoute => {
                 }
                 viewer = prev.insertAdjacentElement('beforebegin', viewer);
 
-            } else {
-                try {
-                    document.body.removeChild(viewer)
-                } catch (error) {
-                    console.log("no viewer present!")
-                }
-            }
-
+            } 
             pdfDoc.getPage(numPage).then(page => {
                 let viewport = page.getViewport({scale: window.screen.width / page.getViewport({scale: 1}).width});
                     canvas.height = viewport.height;
