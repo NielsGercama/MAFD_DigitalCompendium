@@ -20,10 +20,6 @@ function makeMiroViewer(numPage) {
     viewer.src = PAGES[numPage]["mirolink"];
     viewer.frameBorder = "0";
     viewer.scrolling = "0";
-
-
-    document.getElementById("loadingscreen").style.visibility="visible";
-    setTimeout(function() {document.getElementById("loadingscreen").style.visibility="hidden";}, 4500);
     return viewer
 }
 
@@ -71,6 +67,10 @@ const PDFStart = nameRoute => {
                         viewer = makeMiroViewer(numPage);
                         break;
                 }
+                
+                loadingscreen.style.visibility="visible";
+                setTimeout(function() {loadingscreen.style.visibility="hidden";}, 4500);
+                
                 viewer = loadingscreen.insertAdjacentElement('beforebegin', viewer);
                 if (PAGES[numPage]["type"] == "video") {
                     viewer.play()
