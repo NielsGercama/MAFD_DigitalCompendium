@@ -5,7 +5,7 @@ function make3DViewer(numPage) {
     viewer.alt = "YOUR BROWSER DOES NOT SUPPORT THE 3D MODEL RENDERER";
     viewer.src = "media/3d/" + numPage + "/model.glb";
     return viewer
-    //<model-viewer id="modelviewer" alt="CUBE 3D MODEL" src="media/3d/01/model.glb" shadow-intensity="1" camera-controls touch-action="pan-y" ar environment-image="media/3d/01/environment.hdr" poster="media/3d/01/poster.jpg"></model-viewer>
+    //<model-viewer id="modelviewer" alt="CUBE 3D MODEL" src="media/3d/01/model.glb" shadow-intensity="1" camera-controls touch-action="pan-y" ar environment-image="media/02/environment.hdr" poster="media/02/poster.jpg"></model-viewer>
 }
 
 function makeMiroViewer(numPage) {
@@ -52,21 +52,21 @@ const PDFStart = nameRoute => {
                 } catch (error) {
                     console.log("no viewer present!")
                 }
-                
-                pdfDoc.getPage(numPage).then(page => {
-                    let viewport = page.getViewport({scale: window.screen.width / page.getViewport({scale: 1}).width});
-                        canvas.height = viewport.height;
-                        canvas.width = viewport.width;
-                    
-                    let renderContext = {
-                        canvasContext : ctx,
-                        viewport:  viewport
-                    }
-
-                    page.render(renderContext);
-                })
-                document.querySelector('#npages').innerHTML = numPage;
             }
+            
+            pdfDoc.getPage(numPage).then(page => {
+                let viewport = page.getViewport({scale: window.screen.width / page.getViewport({scale: 1}).width});
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+                
+                let renderContext = {
+                    canvasContext : ctx,
+                    viewport:  viewport
+                }
+
+                page.render(renderContext);
+            })
+            document.querySelector('#npages').innerHTML = numPage;
 
 
         }
