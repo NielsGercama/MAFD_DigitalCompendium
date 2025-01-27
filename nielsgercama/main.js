@@ -48,6 +48,7 @@ const PDFStart = nameRoute => {
 
 
         const GeneratePDF = numPage => {
+            loadingscreen.style.visibility = "hidden";
             try {
                 document.body.removeChild(viewer)
             } catch (error) {
