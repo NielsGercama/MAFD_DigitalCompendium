@@ -23,7 +23,7 @@ function makeMiroViewer(numPage) {
 
 
     document.getElementById("loadingscreen").style.opacity = 1;
-
+    setTimeout(function() {document.getElementById("loadingscreen").style.opacity = 0;}, 4500);
     return viewer
 }
 
