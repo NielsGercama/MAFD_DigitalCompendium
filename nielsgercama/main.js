@@ -20,6 +20,16 @@ function makeMiroViewer(numPage) {
     viewer.src = PAGES[numPage]["mirolink"];
     viewer.frameBorder = "0";
     viewer.scrolling = "0";
+
+    const loadingscreen = document.createElement("div");
+    loadingscreenn.id = "loadingscreen";
+    loadingscreen.style.backgroundColor = "white";
+    const loadingscreentext = document.createElement("p");
+    loadingscreentext.innerHTML = "loading...";
+    loadingscreentext.id = "loadingscreentext";
+    loadingscreen.appendChild(loadingscreentext);
+
+    viewer.appendChild(loadingscreen);
     return viewer
 }
 
