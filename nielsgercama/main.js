@@ -39,6 +39,8 @@ const PDFStart = nameRoute => {
                         viewer = make3DViewer(numPage);
                     case "miro":
                         viewer = makeMiroViewer(numPage);
+                    default:
+                        {}
                 }
 
                 viewer = document.body.appendChild(viewer)
