@@ -21,7 +21,7 @@ const PDFStart = nameRoute => {
                 canvas.style.pointerEvents = "all";
                 
                 pdfDoc.getPage(numPage).then(page => {
-                    let viewport = page.getViewport({scale: canvas.width / page.getViewport({scale: 1}).width});
+                    let viewport = page.getViewport({scale: window.screen.width / page.getViewport({scale: 1}).width});
                         canvas.height = viewport.height;
                         canvas.width = viewport.width;
                     
