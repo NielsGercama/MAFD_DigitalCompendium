@@ -31,7 +31,7 @@ const PDFStart = nameRoute => {
 
         const GeneratePDF = numPage => {
             if (numPage in PAGES) {
-                console.log(PAGES[numPage])
+                console.log(PAGES[numPage]["type"])
                 switch (PAGES[numPage]["type"]) {
                     case "video":
                         viewer = makeVideoViewer(numPage);
