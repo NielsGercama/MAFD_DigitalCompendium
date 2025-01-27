@@ -43,11 +43,13 @@
             #videoslide {
                 opacity:0;
                 width:100%;
+                position:fixed;
                 height:auto;
             }
 
             #modelviewer {
-                width:100%;
+                position:fixed;
+                width:1920px;
                 height:auto;
             }
 
@@ -67,7 +69,7 @@
 
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
     <model-viewer id="modelviewer" alt="CUBE 3D MODEL" src="media/3d/01/model.glb" shadow-intensity="1" camera-controls touch-action="pan-y" ar environment-image="media/3d/01/environment.hdr" poster="media/3d/01/poster.jpg"></model-viewer>
-
+    <script>document.getElementById("modelviewer").style.width = window.style.width</script>
     <canvas id="cnv">
         
     </canvas> 
