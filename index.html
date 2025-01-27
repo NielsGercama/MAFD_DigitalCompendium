@@ -53,23 +53,26 @@
         </style>
     </head>
 <body>  
-    <iframe id="ic" src="https://miro.com/app/embed/uXjVKE-Zstg=/?pres=1&frameId=3458764614711847583&embedId=503370172447&autoplay=yep" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen ></iframe>
+    <!-- <iframe id="ic" src="https://miro.com/app/embed/uXjVKE-Zstg=/?pres=1&frameId=3458764614711847583&embedId=503370172447&autoplay=yep" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen ></iframe>
 
     <video id="videoslide" controls playsinline loop poster="media/video/video001/poster.jpg">
         <source src="media/video/video001/video.mp4" type="video/mp4">
         Your browser does not support the video tag.
-    </video>
+    </video> -->
+
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+    <model-viewer alt="CUBE 3D MODEL" src="cube.obj" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
 
     <canvas id="cnv">
         
     </canvas> 
     
-    <button id="prev" style="left:0">&#8678;</button>
+    <!-- <button id="prev" style="left:0">&#8678;</button>
     <button id="next" style="right:0">&#8680;</button>
     <span id="npages">0</span>
            
     <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.3.200/build/pdf.min.js"></script> 
-    <script src="js/main.js"></script>
+    <script src="js/main.js"></script> -->
 </body>
 </html>
 
