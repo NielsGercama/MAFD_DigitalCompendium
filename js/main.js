@@ -6,6 +6,7 @@ const PDFStart = nameRoute => {
         scale = 2,
         numPage = 1,
         IC = document.querySelector('#ic');
+        VIDEOSLIDE = document.querySelector('#videoslide')
 
         const GeneratePDF = numPage => {
             if (numPage === 2) {
