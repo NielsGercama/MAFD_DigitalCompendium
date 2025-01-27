@@ -22,8 +22,8 @@ function makeMiroViewer(numPage) {
     viewer.scrolling = "0";
 
 
-    document.getElementById("loadingscreen").style.opacity = 1;
-    setTimeout(function() {document.getElementById("loadingscreen").style.opacity = 0;}, 4500);
+    document.getElementById("loadingscreen").style.visibility="visible";
+    setTimeout(function() {document.getElementById("loadingscreen").style.visibility="hidden";}, 4500);
     return viewer
 }
 
