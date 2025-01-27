@@ -3,7 +3,9 @@ function make3DViewer(numPage) {
     const viewer = document.createElement("model-viewer");
     viewer.id = "modelviewer";
     viewer.alt = "YOUR BROWSER DOES NOT SUPPORT THE 3D MODEL RENDERER";
-    viewer.src = "media/3d/" + numPage + "/model.glb";
+    viewer.src = "media/" + numPage + "/model.glb";
+    viewer.poster = "media/" + numPage + "/poster.jpg";
+    
     return viewer
     //<model-viewer id="modelviewer" alt="CUBE 3D MODEL" src="media/3d/01/model.glb" shadow-intensity="1" camera-controls touch-action="pan-y" ar environment-image="media/02/environment.hdr" poster="media/02/poster.jpg"></model-viewer>
 }
@@ -11,12 +13,22 @@ function make3DViewer(numPage) {
 function makeMiroViewer(numPage) {
     const viewer = document.createElement("iframe");
     viewer.id = "miroviewer";
+    viewer.src = PAGES[numPage]["mirolink"];
+    viewer.frameBorder = "0";
+    viewer.scrolling = "0";
     return viewer
 }
 
 function makeVideoViewer(numPage) {
     const viewer = document.createElement("video");
-    viewer.id = "videoviewer"
+    viewer.id = "videoviewer";
+    viewer.poster = "media/" + numPage + "/poster.jpg";
+
+    var source = document.createElement('source');
+    source.setAttribute('src', "media/" + numPage + "/video.mp4");
+    source.setAttribute('type', 'video/mp4');
+
+    viewer.appendChild(source);
     return viewer
 }
 
@@ -53,7 +65,7 @@ const PDFStart = nameRoute => {
                     console.log("no viewer present!")
                 }
             }
-            
+
             pdfDoc.getPage(numPage).then(page => {
                 let viewport = page.getViewport({scale: window.screen.width / page.getViewport({scale: 1}).width});
                     canvas.height = viewport.height;
