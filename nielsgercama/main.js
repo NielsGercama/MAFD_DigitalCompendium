@@ -96,31 +96,37 @@ const PDFStart = nameRoute => {
         }
 
         const PrevPage = () => {
-            prev = document.getElementById("prev");
             if(numPage === 1){
                 return
             }
             numPage--;
-            if (numPage <= 1) {
-                prev.style.visibility = "hidden";
-            } else {
-                prev.style.visibility = "visible";
-            }
+
+            prev = document.getElementById("prev");
+            next = document.getElementById("next");
+            if (numPage < pdfDoc.numPages) {
+                next.style.visibility = "visible";
+                if (numPage <= 1) {
+                    prev.style.visibility = "hidden";
+                }
+            } 
             GeneratePDF(numPage);
         }
 
         const NextPage = () => {
-            next = document.getElementById("next");
             if(numPage >= pdfDoc.numPages){
                 return
             }
     
             numPage++;
-            if (numPage >= pdfDoc.numPages) {
-                next.style.visibility = "hidden";
-            } else {
-                next.style.visibility = "visible";
-            }
+
+            prev = document.getElementById("prev");
+            next = document.getElementById("next");
+            if (numPage > 1) {
+                prev.style.visibility = "visible";
+                if (numPage >= pdfDoc.numPages) {
+                    next.style.visibility = "hidden";
+                }
+            } 
             GeneratePDF(numPage);
         }
 
