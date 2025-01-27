@@ -19,13 +19,14 @@ const PDFStart = nameRoute => {
 
         const GeneratePDF = numPage => {
             if (numPage in PAGES) {
+                console.log(PAGES[numPage])
                 switch (PAGES[numPage]["type"]) {
                     case "video":
-                        viewer = makeVideoViewer(numPage)
+                        viewer = makeVideoViewer(numPage);
                     case "3d":
-                        viewer = make3DViewer(numPage)
+                        viewer = make3DViewer(numPage);
                     case "miro":
-                        viewer = makeMiroViewer(numPage)
+                        viewer = makeMiroViewer(numPage);
                 }
 
                 viewer = document.body.appendChild(viewer)
