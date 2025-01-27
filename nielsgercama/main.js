@@ -69,8 +69,8 @@ const PDFStart = nameRoute => {
                 }
                 
                 loadingscreen.style.visibility="visible";
-                setTimeout(function() {loadingscreen.style.visibility="hidden";}, 3800);
-
+                // setTimeout(function() {loadingscreen.style.visibility="hidden";}, 3800);
+                viewer.onload(function() {loadingscreen.style.visibility="hidden";});
                 viewer = loadingscreen.insertAdjacentElement('beforebegin', viewer);
                 if (PAGES[numPage]["type"] == "video") {
                     viewer.play()
