@@ -1,25 +1,29 @@
 
 function make3DViewer(numPage) {
+    prev = document.getElementById("prev");
     const viewer = document.createElement("model-viewer");
     viewer.id = "modelviewer";
     viewer.alt = "YOUR BROWSER DOES NOT SUPPORT THE 3D MODEL RENDERER";
     viewer.src = "media/" + numPage + "/model.glb";
     viewer.poster = "media/" + numPage + "/poster.jpg";
-    
+    viewer = prev.insertAdjacentElement('beforebegin', viewer);
     return viewer
     //<model-viewer id="modelviewer" alt="CUBE 3D MODEL" src="media/3d/01/model.glb" shadow-intensity="1" camera-controls touch-action="pan-y" ar environment-image="media/02/environment.hdr" poster="media/02/poster.jpg"></model-viewer>
 }
 
 function makeMiroViewer(numPage) {
+    prev = document.getElementById("prev");
     const viewer = document.createElement("iframe");
     viewer.id = "miroviewer";
     viewer.src = PAGES[numPage]["mirolink"];
     viewer.frameBorder = "0";
     viewer.scrolling = "0";
+    viewer = prev.insertAdjacentElement('beforebegin', viewer);
     return viewer
 }
 
 function makeVideoViewer(numPage) {
+    prev = document.getElementById("prev");
     const viewer = document.createElement("video");
     viewer.id = "videoviewer";
     viewer.poster = "media/" + numPage + "/poster.jpg";
@@ -29,6 +33,8 @@ function makeVideoViewer(numPage) {
     source.setAttribute('type', 'video/mp4');
 
     viewer.appendChild(source);
+    viewer = prev.insertAdjacentElement('beforebegin', viewer);
+    viewer.play()
     return viewer
 }
 
@@ -38,8 +44,7 @@ const PDFStart = nameRoute => {
         pdfDoc = null,
         canvas = document.querySelector('#cnv'),
         ctx = canvas.getContext('2d'),
-        numPage = 1,
-        prev = document.getElementById("prev");
+        numPage = 1
 
 
         const GeneratePDF = numPage => {
@@ -62,7 +67,7 @@ const PDFStart = nameRoute => {
                         viewer = makeMiroViewer(numPage);
                         break;
                 }
-                viewer = prev.insertAdjacentElement('beforebegin', viewer);
+                
 
             } 
             pdfDoc.getPage(numPage).then(page => {
