@@ -11,7 +11,6 @@ function make3DViewer(numPage) {
     viewer.setAttribute('touch-action', 'pan-y');
     viewer.setAttribute('ar', '');
     return viewer
-    //<model-viewer id="modelviewer" alt="CUBE 3D MODEL" src="media/3d/01/model.glb" shadow-intensity="1" camera-controls touch-action="pan-y" ar environment-image="media/02/environment.hdr" poster="media/02/poster.jpg"></model-viewer>
 }
 
 function makeMiroViewer(numPage) {
@@ -97,18 +96,31 @@ const PDFStart = nameRoute => {
         }
 
         const PrevPage = () => {
+            prev = document.getElementById("prev");
             if(numPage === 1){
                 return
             }
             numPage--;
+            if (numPage <= 1) {
+                prev.style.visibility = "hidden";
+            } else {
+                prev.style.visibility = "visible";
+            }
             GeneratePDF(numPage);
         }
 
         const NextPage = () => {
+            next = document.getElementById("next");
             if(numPage >= pdfDoc.numPages){
                 return
             }
+    
             numPage++;
+            if (numPage >= pdfDoc.numPages) {
+                next.style.visibility = "hidden";
+            } else {
+                next.style.visibility = "visible";
+            }
             GeneratePDF(numPage);
         }
 
