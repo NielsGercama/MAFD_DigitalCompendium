@@ -48,6 +48,7 @@ const PDFStart = nameRoute => {
         canvas = document.querySelector('#cnv'),
         ctx = canvas.getContext('2d'),
         numPage = 1
+        loadingscreen = document.getElementById("loadingscreen");
 
 
         const GeneratePDF = numPage => {
@@ -70,7 +71,7 @@ const PDFStart = nameRoute => {
                         viewer = makeMiroViewer(numPage);
                         break;
                 }
-                viewer = prev.insertAdjacentElement('beforebegin', viewer);
+                viewer = loadingscreen.insertAdjacentElement('beforebegin', viewer);
                 if (PAGES[numPage]["type"] == "video") {
                     viewer.play()
                 } 
