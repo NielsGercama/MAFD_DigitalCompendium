@@ -21,15 +21,9 @@ function makeMiroViewer(numPage) {
     viewer.frameBorder = "0";
     viewer.scrolling = "0";
 
-    const loadingscreen = document.createElement("div");
-    loadingscreen.id = "loadingscreen";
-    loadingscreen.style.backgroundColor = "white";
-    const loadingscreentext = document.createElement("p");
-    loadingscreentext.innerHTML = "loading...";
-    loadingscreentext.id = "loadingscreentext";
-    loadingscreen.appendChild(loadingscreentext);
 
-    viewer.appendChild(loadingscreen);
+    document.getElementById("loadingscreen").style.opacity = 1;
+
     return viewer
 }
 
