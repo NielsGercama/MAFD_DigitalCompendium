@@ -3,7 +3,7 @@ const PDFStart = nameRoute => {
         pdfDoc = null,
         canvas = document.querySelector('#cnv'),
         ctx = canvas.getContext('2d'),
-        scale = 2,
+        scale = 0.5,
         numPage = 1,
         IC = document.querySelector('#ic');
         VIDEOSLIDE = document.querySelector('#videoslide')
