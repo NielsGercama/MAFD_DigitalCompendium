@@ -50,7 +50,7 @@ function setAudioPlayer(numPage) {
         }
     } else {
         audioplayer.stop();
-        audioplayer.style.visibility = hidden;
+        audioplayer.style.visibility = "hidden";
         audioplayer.style.pointerEvents = "none";
     }
 }
