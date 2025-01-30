@@ -97,6 +97,14 @@
                 user-select: none;
             }
 
+            #audioplayer {
+                width:100%;
+                bottom:0;
+                height:50px;
+                background-color: white;
+                color:black;
+            }
+
             @keyframes loadingopacity {
                 50% {opacity: 0;}
             }
@@ -117,12 +125,21 @@
         Your browser does not support the video tag.
     </video> -->
 
+
+
     <div id="loadingscreen"><img src="media/page/loading.png" id="loadingscreenimage"></div>
+
+    <audio id="audioplayer" controls autoplay muted>
+        <source src="audio.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
 
     <img class="navigator" id="prev" style="left:10px; visibility:hidden;" src="media/page/buttons/previous.png">
     <img class="navigator" id="next" style="right:10px" src="media/page/buttons/next.png">
     <span id="npages">0</span>
     
+
+
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.3.200/build/pdf.min.js"></script> 
     <script src="map.js"></script>

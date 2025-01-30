@@ -36,6 +36,23 @@ function makeVideoViewer(numPage) {
     return viewer
 }
 
+function setAudioPlayer(numPage) {
+    startPage = PAGES[numPage]["audioplayer"]["startPage"];
+    endPage = PAGES[numPage]["audioplayer"]["endPage"];
+    audioplayer = document.getElementById("audioplayer"); 
+
+    if (numPage >=  startPage || numPage <= endPage) {
+        audioplayer.style.pointEvents = "all";
+        audioplayer.style.visibility = "visible";
+        if (audioplayer.paused) {
+            audioplayer.play();
+        }
+    } else {
+        audioplayer.stop();
+        audioplayer.style.visibility = hidden;
+        audioplayer.style.pointerEvents = "none";
+    }
+}
 
 const PDFStart = nameRoute => {           
     let loadingTask = pdfjsLib.getDocument(nameRoute),
