@@ -42,7 +42,7 @@ function setAudioPlayer(numPage) {
     endPage = 9;
     audioplayer = document.getElementById("audioplayer"); 
 
-    if (numPage >=  startPage || numPage <= endPage) {
+    if (numPage >=  startPage && numPage <= endPage) {
         audioplayer.style.pointerEvents = "all";
         audioplayer.style.visibility = "visible";
         if (audioplayer.paused && numPage == startPage) {
