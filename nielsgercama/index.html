@@ -108,6 +108,11 @@
                 border:1px solid black
             }
 
+            audio::-webkit-media-controls-enclosure {
+                border-radius: 0;
+            }
+
+
             @keyframes loadingopacity {
                 50% {opacity: 0;}
             }
@@ -133,7 +138,7 @@
     <div id="loadingscreen"><img src="media/page/loading.png" id="loadingscreenimage"></div>
 
     <audio id="audioplayer" controls autoplay muted>
-        <source src="audio.mp3" type="audio/mpeg">
+        <source src="media/audio.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
 
