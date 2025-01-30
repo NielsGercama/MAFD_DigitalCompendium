@@ -45,7 +45,11 @@ function setAudioPlayer(numPage) {
     if (numPage >=  startPage && numPage <= endPage) {
         audioplayer.style.pointerEvents = "all";
         audioplayer.style.visibility = "visible";
+        if (audioplayer.paused) {
+            audioplayer.play();
+        }
     } else {
+        audioplayer.pause();
         audioplayer.style.visibility = "hidden";
         audioplayer.style.pointerEvents = "none";
     }
