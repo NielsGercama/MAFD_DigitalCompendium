@@ -26,6 +26,7 @@ function makeVideoViewer(numPage) {
     const viewer = document.createElement("video");
     viewer.id = "videoviewer";
     viewer.poster = "media/" + numPage + "/poster.jpg";
+    viewer.setAttribute("controls","");
 
     var source = document.createElement('source');
     source.setAttribute('src', "media/" + numPage + "/video.mp4");
@@ -37,14 +38,14 @@ function makeVideoViewer(numPage) {
 }
 
 function setAudioPlayer(numPage) {
-    startPage = PAGES[numPage]["audioplayer"]["startPage"];
-    endPage = PAGES[numPage]["audioplayer"]["endPage"];
+    startPage = 6;
+    endPage = 9;
     audioplayer = document.getElementById("audioplayer"); 
 
     if (numPage >=  startPage || numPage <= endPage) {
         audioplayer.style.pointEvents = "all";
         audioplayer.style.visibility = "visible";
-        if (audioplayer.paused) {
+        if (audioplayer.paused && numPage == startPage) {
             audioplayer.play();
         }
     } else {
@@ -70,6 +71,8 @@ const PDFStart = nameRoute => {
             } catch (error) {
                 console.log("no viewer present!")
             }
+
+            setAudioPlayer(numPage);
 
             if (numPage in PAGES) {
                 console.log(PAGES[numPage]["type"])
