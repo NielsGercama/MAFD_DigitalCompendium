@@ -26,6 +26,7 @@ function makeVideoViewer(numPage) {
     const viewer = document.createElement("video");
     viewer.id = "videoviewer";
     viewer.poster = "media/" + numPage + "/poster.jpg";
+    viewer.setAttribute("controls","");
 
     var source = document.createElement('source');
     source.setAttribute('src', "media/" + numPage + "/video.mp4");
@@ -36,6 +37,23 @@ function makeVideoViewer(numPage) {
     return viewer
 }
 
+function setAudioPlayer(numPage) {
+    startPage = 655;
+    endPage = 999;
+    audioplayer = document.getElementById("audioplayer"); 
+
+    if (numPage >=  startPage || numPage <= endPage) {
+        audioplayer.style.pointerEvents = "all";
+        audioplayer.style.visibility = "visible";
+        if (audioplayer.paused && numPage == startPage) {
+            audioplayer.play();
+        }
+    } else {
+        audioplayer.stop();
+        audioplayer.style.visibility = "hidden";
+        audioplayer.style.pointerEvents = "none";
+    }
+}
 
 const PDFStart = nameRoute => {           
     let loadingTask = pdfjsLib.getDocument(nameRoute),
@@ -53,6 +71,8 @@ const PDFStart = nameRoute => {
             } catch (error) {
                 console.log("no viewer present!")
             }
+
+            setAudioPlayer(numPage);
 
             if (numPage in PAGES) {
                 console.log(PAGES[numPage]["type"])
