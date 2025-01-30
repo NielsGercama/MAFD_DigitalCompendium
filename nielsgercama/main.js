@@ -43,7 +43,7 @@ function setAudioPlayer(numPage) {
     audioplayer = document.getElementById("audioplayer"); 
 
     if (numPage >=  startPage || numPage <= endPage) {
-        audioplayer.style.pointEvents = "all";
+        audioplayer.style.pointerEvents = "all";
         audioplayer.style.visibility = "visible";
         if (audioplayer.paused && numPage == startPage) {
             audioplayer.play();
