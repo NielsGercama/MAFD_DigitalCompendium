@@ -68,6 +68,12 @@ const PDFStart = nameRoute => {
                 console.log("no viewer present!")
             }
 
+            try {
+                clearTimeout(this.loadingtimeoutid)
+            } catch {error} {
+                console.log("no loading screen timeout present");
+            }
+
             setAudioPlayer(numPage);
 
             if (numPage in PAGES) {
@@ -85,7 +91,8 @@ const PDFStart = nameRoute => {
                 }
                 
                 loadingscreen.style.visibility="visible";
-                setTimeout(function() {loadingscreen.style.visibility="hidden";}, 3500);
+                
+                this.loadingtimeoutid = setTimeout(function() {loadingscreen.style.visibility="hidden";}, 3500);
                 viewer = loadingscreen.insertAdjacentElement('beforebegin', viewer);
                 if (PAGES[numPage]["type"] == "video") {
                     viewer.play()
