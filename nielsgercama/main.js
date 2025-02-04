@@ -108,7 +108,11 @@ const PDFStart = nameRoute => {
                 let bigPage = Math.max(page.getViewport({scale:1}).width, page.getViewport({scale:1}).height);
                 if (bigPage == page.getViewport({scale:1}).width) {
                     big = window.screen.width;
+                    canvas.style.height="auto";
+                    canvas.style.width="100%";
                 } else {
+                    canvas.style.height="100%";
+                    canvas.style.width="auto";
                     big = window.screen.height;
                 }
                 let viewport = page.getViewport({scale: big / bigPage});
