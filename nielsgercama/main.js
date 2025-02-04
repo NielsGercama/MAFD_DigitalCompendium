@@ -105,7 +105,13 @@ const PDFStart = nameRoute => {
             } 
 
             pdfDoc.getPage(numPage).then(page => {
-                let viewport = page.getViewport({scale: window.screen.width / page.getViewport({scale: 1}).width});
+                let bigPage = max(page.getViewport({scale:1}).width, page.getViewport({scale:1}).height);
+                if (bigPage == page.getViewport({scale:1}).width) {
+                    big = window.screen.width;
+                } else {
+                    big = window.screen.height;
+                }
+                let viewport = page.getViewport({scale: big / bigPage});
                     canvas.height = viewport.height;
                     canvas.width = viewport.width;
                 
