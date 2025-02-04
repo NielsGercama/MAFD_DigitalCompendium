@@ -105,7 +105,7 @@ const PDFStart = nameRoute => {
             } 
 
             pdfDoc.getPage(numPage).then(page => {
-                let bigPage = max(page.getViewport({scale:1}).width, page.getViewport({scale:1}).height);
+                let bigPage = Math.max(page.getViewport({scale:1}).width, page.getViewport({scale:1}).height);
                 if (bigPage == page.getViewport({scale:1}).width) {
                     big = window.screen.width;
                 } else {
