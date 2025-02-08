@@ -3,17 +3,25 @@ To make your own compendium site, take the following step:
 0. Create a folder. The name of the folder is what your site will be called.
 
 1. Create your compendium pdf.
+
     a. Keep in mind that the ratio of most PC screens is 16:9. The optimal ratio for your compendium should thus be something around that value.
+
     b. You can deviate in page size however! Feel free to make some pages wider or longer. The site will automatically adjust so that viewers can scroll to see the content. 
+
     c. On pages where you want to embed something like a video, please do make a page for it in the compendium. Say you want to just embed a miro board on page 5 of your compendium, then leave page 5 in the pdf file blank. It will become the background to that page.
+
     d. Save the compendium pdf in the site folder. Call it "compendium.pdf"
 
 2. Create a folder called "media".
+
     a. Drop the files you want to embed in this folder.
+    
     b. For videos and 3d models, its possible to add a so-called "poster". This will serve as a placeholder while your embedded video or model loads. This can be any .jpg image. Just drop your poster with the other media in the "media" folder. 
 
 3. Create a file called "map.js"
+
     a. This file will tell my code where your media is located, and on what page to load which media.
+    
     b. Add the information in the following format (you can copy paste this and edit what you need):
 
 ```javascript
