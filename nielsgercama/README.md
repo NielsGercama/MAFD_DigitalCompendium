@@ -18,9 +18,17 @@ To make your own compendium site, take the following step:
 
 ```javascript
 const PAGES = {
+    3 : {
+
+        type : "youtube",
+        link:"https://www.youtube.com/watch?v=Bx3O0N2nXcs&t=3s",
+        posterlink:""
+
+    },
+
     4 : {
 
-        type:"video", //video , miro , 3d 
+        type:"video", //video, youtube, miro , 3d 
         link:"media/examplevideo/video.mp4",
         posterlink:"media/examplevideo/poster.jpg",
 
@@ -28,7 +36,7 @@ const PAGES = {
     
     6 : {
 
-        type:"miro", //video, miro, 3d
+        type:"miro", //video, youtube, miro , 3d 
         link:"https://miro.com/app/embed/uXjVKE-Zstg=/?pres=1&frameId=3458764614711847583&embedId=503370172447&autoplay=yep",
         posterlink:""
 
@@ -36,9 +44,9 @@ const PAGES = {
 
     7 : {
 
-        type:"3d", //video, miro, 3d
+        type:"3d", //video, youtube, miro , 3d 
         link:"media/example3d/model.glb",
-        posterlink:"media/example3d/poster.jpg
+        posterlink:"media/example3d/poster.jpg"
 
     }
 
@@ -55,7 +63,7 @@ const AUDIO = {
 }
 ```
 
-To embed media on a page simply add the page number as seen above and specify the media "type" (this can be either "video", "miro" or "3d"). Give a link to the media. Video files must be .mp4, 3d models must be .glb. To embed a miro board, simply paste the url to the board in the "link" section.
+To embed media on a page simply add the page number as seen above and specify the media "type" (this can be either "video", "youtube", "miro" or "3d"). Give a link to the media. Video files must be .mp4, 3d models must be .glb. To embed a miro board or youtube video, simply paste the url to the board in the "link" section.
 
 In the above example, I am embedding a video on page 4, a miro board on page 6 and a 3d model on page 7. Notice that each time, in the "link" section, I provide a link to where the file is stored. I do this as well for the poster, for the video and 3d example. You can leave the "posterlink" section empty (like this: "") if you're not using posters. Miro boards don't need posters, so there we leave posterlink blank. 
 

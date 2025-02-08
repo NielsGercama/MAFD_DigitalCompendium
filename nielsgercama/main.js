@@ -37,7 +37,23 @@ function makeVideoViewer(INFO) {
     viewer.play()
     return viewer
 }
+function makeYouTubeViewer(INFO) {
+    const viewer = document.createElement("iframe");
+    viewer.id = "youtubeviewer";
+    link = INFO["link"].split("&")[0];
+    link = link.replace("youtube", "youtube-nocookie")
+    link = link.replace("watch?v=", "embed/");
+    link += "?rel=0&amp;controls=1;showinfo=0&amp;modestbranding=1;autoplay=1";
+    
+    viewer.src = link
+    viewer.setAttribute("allow","accelerometer");
+    viewer.setAttribute("autoplay","");
+    viewer.setAttribute("allowfullscreen","");
 
+    viewer.frameBorder = "0";
+    viewer.scrolling = "0";
+    return viewer
+}
 function setAudioPlayer(numPage, AUDIO) {
     audioplayer = document.getElementById("audioplayer"); 
 
@@ -109,6 +125,9 @@ const PDFStart = nameRoute => {
                         break;
                     case "miro":
                         viewer = makeMiroViewer(INFO);
+                        break;
+                    case "youtube":
+                        viewer = makeYouTubeViewer(INFO);
                         break;
                 }
                 
