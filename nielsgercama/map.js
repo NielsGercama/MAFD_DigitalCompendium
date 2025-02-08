@@ -7,7 +7,7 @@ const PAGES = {
     4 : {
         type:"video", //video (.mp4), miro (url), 3d (.glb)
         link:"media/examplevideo/video.mp4",
-        posterlink:"media/examplevideo/poster.jpg"
+        posterlink:"media/examplevideo/poster.jpg",
     },
     7 : {
         type:"3d", //video, miro, 3d
@@ -16,3 +16,9 @@ const PAGES = {
     }
 }
 
+const AUDIO = {
+    "media/exampleaudio/audio2.mp3" : {
+        "start" : 2,
+        "end" : 5
+    }
+}

@@ -38,18 +38,35 @@ function makeVideoViewer(INFO) {
     return viewer
 }
 
-function setAudioPlayer(numPage) {
-    startPage = 6;
-    endPage = 9;
+function setAudioPlayer(numPage, AUDIO) {
     audioplayer = document.getElementById("audioplayer"); 
 
-    if (numPage >=  startPage && numPage <= endPage) {
-        audioplayer.style.pointerEvents = "all";
-        audioplayer.style.visibility = "visible";
-        if (audioplayer.paused) {
-            audioplayer.play();
+    var fresh = false;
+
+    for (link in AUDIO) {
+        if (numPage >=  AUDIO[link]["start"] && numPage <= AUDIO[link]["end"]) {
+
+            if (audioplayer.style.visibility != "visible") {
+                audioplayer.style.visibility = "visible";
+            }
+
+            if (audioplayer.style.pointerEvents != "all") {
+                audioplayer.style.pointerEvents = "all";
+            }
+
+            if (numPage == AUDIO[link]["start"]) {
+                audioplayer.src = link;
+                audioplayer.play();
+                console.log("play");
+            }
+
+            fresh = true; 
+
+            break
         }
-    } else {
+    } 
+
+    if (!fresh) {
         audioplayer.pause();
         audioplayer.style.visibility = "hidden";
         audioplayer.style.pointerEvents = "none";
@@ -79,7 +96,7 @@ const PDFStart = nameRoute => {
                 console.log("no loading screen timeout present");
             }
 
-            setAudioPlayer(numPage);
+            setAudioPlayer(numPage, AUDIO);
 
             if (numPage in PAGES) {
                 INFO = PAGES[numPage];
@@ -106,10 +123,18 @@ const PDFStart = nameRoute => {
             } 
 
             pdfDoc.getPage(numPage).then(page => {
+                bottom = document.getElementById("bottom");
+
                 viewport = page.getViewport({scale: 1});
+                let scale =  window.screen.width / viewport.width;
+                viewport = page.getViewport({scale:scale});
+
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+
+                let ratio = window.innerWidth / window.innerHeight;
                 
-                let ratio = window.screen.width / window.screen.height;
-                if (viewport.width > ratio * viewport.height) {
+                if (canvas.width >= ratio * canvas.height) {
                     canvas.style.width = "auto";
                     canvas.style.height = "100%";
                 } else {
@@ -117,11 +142,11 @@ const PDFStart = nameRoute => {
                     canvas.style.height = "auto";
                 }
                 
-                let scale =  window.screen.width / viewport.width;
-                viewport = page.getViewport({scale:scale});
-
-                canvas.width = viewport.width;
-                canvas.height = viewport.height;
+                if (canvas.width >= ratio * 0.8 * canvas.height) {
+                    bottom.style.visibility="hidden";
+                } else {
+                    bottom.style.visibility="visible";
+                }
                 
                 
                 let renderContext = {
@@ -182,7 +207,8 @@ const PDFStart = nameRoute => {
 }
 
 const startPdf = () => {
-    PDFStart('compendium.pdf')
+    PDFStart('compendium.pdf');
+    GeneratePDF(1);
 }
 
 window.addEventListener('load', startPdf);

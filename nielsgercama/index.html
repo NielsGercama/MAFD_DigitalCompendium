@@ -97,19 +97,36 @@
                 user-select: none;
             }
 
+            #bottom {
+                animation: loadingopacity 2s infinite;
+                position: fixed;
+                bottom:5%;
+                left:30%;
+                width:auto;
+                height:10%;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -o-user-select: none;
+                user-select: none;
+            }
+
             #audioplayer {
                 width:100%;
                 bottom:0;
-                height:50px;
+                height:5%;
                 background-color: white;
-                color:black;
+                color:rgb(255, 255, 255);
                 visibility: hidden;
                 position:fixed;
-                border:1px solid black
+                /* border:1px solid rgb(0, 0, 0) */
             }
 
             audio::-webkit-media-controls-enclosure {
                 border-radius: 0;
+                border:1px solid rgb(0, 0, 0);
+                background-color:white;
+                color:white
             }
 
 
@@ -138,12 +155,13 @@
     <div id="loadingscreen"><img src="media/page/loading.png" id="loadingscreenimage"></div>
 
     <audio id="audioplayer" controls>
-        <source src="media/audio/audio.mp3" type="audio/mpeg">
+        <source id="audiosource" src="" type="audio/mpeg"></source>
       Your browser does not support the audio element.
     </audio>
 
     <img class="navigator" id="prev" style="left:10px; visibility:hidden;" src="media/page/buttons/previous.png">
     <img class="navigator" id="next" style="right:10px" src="media/page/buttons/next.png">
+    <img id="bottom" id="next" src="media/page/buttons/bottom.png">
     <span id="npages">0</span>
     
 
