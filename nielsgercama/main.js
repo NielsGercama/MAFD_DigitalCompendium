@@ -105,11 +105,23 @@ const PDFStart = nameRoute => {
             } 
 
             pdfDoc.getPage(numPage).then(page => {
-                let scale =  window.screen.width / page.getViewport({scale:1}).width;
-                let viewport = page.getViewport({scale: scale});
+                viewport = page.getViewport({scale: 1});
                 
-                canvas.height = viewport.height;
+                let ratio = window.screen.width / window.screen.height;
+                if (viewport.width > ratio * viewport.height) {
+                    canvas.style.width = "auto";
+                    canvas.style.height = "100%";
+                } else {
+                    canvas.style.width = "100%";
+                    canvas.style.height = "auto";
+                }
+                
+                let scale =  window.screen.width / viewport.width;
+                viewport = page.getViewport({scale:scale});
+
                 canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                
                 
                 let renderContext = {
                     canvasContext : ctx,
