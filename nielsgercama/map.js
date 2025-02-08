@@ -1,7 +1,7 @@
 const PAGES = {
 	6 : {
         type:"miro", //video, miro, 3d
-        link:"https://miro.com/app/embed/uXjVKE-Zstg=/?pres=1&frameId=3458764614711847583&embedId=503370172447&autoplay=yep",
+        link:"https://miro.com/app/board/uXjVKE-Zstg=/",
         posterlink:""
 	},
     4 : {

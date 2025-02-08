@@ -16,7 +16,7 @@ function make3DViewer(INFO) {
 function makeMiroViewer(INFO) {
     const viewer = document.createElement("iframe");
     viewer.id = "miroviewer";
-    viewer.src = INFO["link"];
+    viewer.src = INFO["link"].replace("board", "embed") + "?pres=1&frameId=3458764614711847583&embedId=503370172447&autoplay=yep";
     viewer.frameBorder = "0";
     viewer.scrolling = "0";
     return viewer
