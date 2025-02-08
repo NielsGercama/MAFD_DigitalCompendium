@@ -25,8 +25,8 @@ const PAGES = {
         posterlink:"media/examplevideo/poster.jpg",
 
     },
-
-	6 : {
+    
+    6 : {
 
         type:"miro", //video, miro, 3d
         link:"https://miro.com/app/embed/uXjVKE-Zstg=/?pres=1&frameId=3458764614711847583&embedId=503370172447&autoplay=yep",
@@ -60,5 +60,6 @@ To embed media on a page simply add the page number as seen above and specify th
 In the above example, I am embedding a video on page 4, a miro board on page 6 and a 3d model on page 7. Notice that each time, in the "link" section, I provide a link to where the file is stored. I do this as well for the poster, for the video and 3d example. You can leave the "posterlink" section empty (like this: "") if you're not using posters. Miro boards don't need posters, so there we leave posterlink blank. 
 
 For the audio, there is a separate section. In this example, I added the link to my first audio file. I then tell the code that the file should start playing on page 2, and end on page 5. Audio format must be .mp3
+
 
 
