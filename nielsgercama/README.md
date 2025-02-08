@@ -16,6 +16,7 @@ To make your own compendium site, take the following step:
     a. This file will tell my code where your media is located, and on what page to load which media.
     b. Add the information in the following format (you can copy paste this and edit what you need):
 
+```javascript
 const PAGES = {
     4 : {
 
@@ -49,9 +50,10 @@ const AUDIO = {
 
         "start" : 2,
         "end" : 5
-        
+
     }
 }
+```
 
 To embed media on a page simply add the page number as seen above and specify the media "type" (this can be either "video", "miro" or "3d"). Give a link to the media. Video files must be .mp4, 3d models must be .glb. To embed a miro board, simply paste the url to the board in the "link" section.
 
