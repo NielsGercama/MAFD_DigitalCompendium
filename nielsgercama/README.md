@@ -70,4 +70,14 @@ In the above example, I am embedding a video on page 4, a miro board on page 6 a
 For the audio, there is a separate section. In this example, I added the link to my first audio file. I then tell the code that the file should start playing on page 2, and end on page 5. Audio format must be .mp3
 
 
+[OPTIONAL] Finally, you are able to change the design of the digital compendium buttons. Inside your "media" folder, create another folder called "page". 
+
+Make sure your image has a transparent background and is saved as a .png file if you want this.
+
+1. For the loading page icon, add a png image (minimum 512 px by 512 px) called "loading.png" inside the "page" folder.
+2. If you want, you can also change the icon shown on the tab of your browser. This should be a .ico image (max. 256 px by 256 px). 
+3. Change the next page button by placing a .png image in the "page" folder called "next.png" (max. 512px by 512 px) 
+4. Change the previous page button by placing a .png image in the "page" folder called "previous.png" (max. 512px by 512 px) 
+5. For pages which require scrolling down, a flashing image will appear onscreen indicating that the page continues below. You can change the look of this image by placing a .png image in the "page" folder called "down.png". If you don't want this image, you can add a completely transparent .png image. Either way, max. 512 px by 512 px again. 
+
 

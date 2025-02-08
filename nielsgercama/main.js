@@ -142,7 +142,7 @@ const PDFStart = nameRoute => {
             } 
 
             pdfDoc.getPage(numPage).then(page => {
-                bottom = document.getElementById("bottom");
+                down = document.getElementById("down");
 
                 viewport = page.getViewport({scale: 1});
                 let scale =  window.screen.width / viewport.width;
@@ -162,9 +162,9 @@ const PDFStart = nameRoute => {
                 }
                 
                 if (canvas.width >= ratio * 0.8 * canvas.height) {
-                    bottom.style.visibility="hidden";
+                    down.style.visibility="hidden";
                 } else {
-                    bottom.style.visibility="visible";
+                    down.style.visibility="visible";
                 }
                 
                 
