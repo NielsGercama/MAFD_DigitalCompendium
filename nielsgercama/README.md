@@ -20,7 +20,7 @@ To make your own compendium site, take the following step:
 const PAGES = {
     3 : {
 
-        type : "youtube",
+        type : "youtube", //video, youtube, miro , 3d 
         link:"https://www.youtube.com/watch?v=Bx3O0N2nXcs&t=3s",
         posterlink:""
 
