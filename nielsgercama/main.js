@@ -1,10 +1,10 @@
 
-function make3DViewer(numPage) {
+function make3DViewer(INFO) {
     const viewer = document.createElement("model-viewer");
     viewer.id = "modelviewer";
     viewer.alt = "YOUR BROWSER DOES NOT SUPPORT THE 3D MODEL RENDERER";
-    viewer.src = "media/" + numPage + "/model.glb";
-    viewer.poster = "media/" + numPage + "/poster.jpg";
+    viewer.src = INFO["link"];
+    viewer.poster = INFO["posterlink"];
     // Set the necessary attributes for the <model-viewer>
     viewer.setAttribute('shadow-intensity', '1');
     viewer.setAttribute('camera-controls', '');
@@ -13,23 +13,24 @@ function make3DViewer(numPage) {
     return viewer
 }
 
-function makeMiroViewer(numPage) {
+function makeMiroViewer(INFO) {
     const viewer = document.createElement("iframe");
     viewer.id = "miroviewer";
-    viewer.src = PAGES[numPage]["mirolink"];
+    viewer.src = INFO["link"];
     viewer.frameBorder = "0";
     viewer.scrolling = "0";
     return viewer
 }
 
-function makeVideoViewer(numPage) {
+function makeVideoViewer(INFO) {
     const viewer = document.createElement("video");
     viewer.id = "videoviewer";
-    viewer.poster = "media/" + numPage + "/poster.jpg";
+    viewer.poster = INFO["link"];
     viewer.setAttribute("controls","");
 
     var source = document.createElement('source');
-    source.setAttribute('src', "media/" + numPage + "/video.mp4");
+    console.log(INFO["link"]);
+    source.setAttribute('src', INFO["link"]);
     source.setAttribute('type', 'video/mp4');
 
     viewer.appendChild(source);
@@ -81,16 +82,16 @@ const PDFStart = nameRoute => {
             setAudioPlayer(numPage);
 
             if (numPage in PAGES) {
-                console.log(PAGES[numPage]["type"])
-                switch (PAGES[numPage]["type"]) {
+                INFO = PAGES[numPage];
+                switch (INFO["type"]) {
                     case "video":
-                        viewer = makeVideoViewer(numPage);
+                        viewer = makeVideoViewer(INFO);
                         break;
                     case "3d":
-                        viewer = make3DViewer(numPage);
+                        viewer = make3DViewer(INFO);
                         break;
                     case "miro":
-                        viewer = makeMiroViewer(numPage);
+                        viewer = makeMiroViewer(INFO);
                         break;
                 }
                 
@@ -98,7 +99,7 @@ const PDFStart = nameRoute => {
                 
                 this.loadingtimeoutid = setTimeout(function() {loadingscreen.style.visibility="hidden";}, 3500);
                 viewer = loadingscreen.insertAdjacentElement('beforebegin', viewer);
-                if (PAGES[numPage]["type"] == "video") {
+                if (INFO["type"] == "video") {
                     viewer.play()
                 } 
 
