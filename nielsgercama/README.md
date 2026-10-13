@@ -1,4 +1,4 @@
-To make your own compendium site, take the following step:
+To make your own compendium site, take the following steps:
 
 0. Create a folder. The name of the folder is what your site will be called.
 
